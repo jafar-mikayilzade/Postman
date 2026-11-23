@@ -27,4 +27,4 @@ jobs:
 
       # 4. Testləri işə salır (Environment faylınız yoxdursa '-e environment.json' hissəsini silin)
       - name: Testləri başlat
-        run: newman run collection.json -e environment.json
+        run: newman run collection.json
