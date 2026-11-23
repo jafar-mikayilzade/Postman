@@ -1,0 +1,30 @@
+name: Postman API Testləri
+
+# Nə vaxt işə düşsün? (Hər dəfə main branch-a dəyişiklik yüklənəndə)
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Bu sətir bizə düymə ilə əllə də işə salmaq imkanı verir
+
+jobs:
+  test-icrasi:
+    runs-on: ubuntu-latest # GitHub bizə müvəqqəti bir Linux serveri verir
+
+    steps:
+      # 1. Bizim yüklədiyimiz collection.json faylını həmin Linux serverinə köçürür
+      - name: Faylları serverə çək
+        uses: actions/checkout@v4
+
+      # 2. Newman-ın işləməsi üçün serverə Node.js qurur
+      - name: Node.js quraşdır
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Serverə Newman alətini yükləyir
+      - name: Newman quraşdır
+        run: npm install -g newman
+
+      # 4. Testləri işə salır (Environment faylınız yoxdursa '-e environment.json' hissəsini silin)
+      - name: Testləri başlat
+        run: newman run collection.json -e environment.json
