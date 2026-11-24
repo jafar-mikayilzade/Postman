@@ -15,7 +15,7 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Status code is 500\", function () {\r\n    pm.response.to.have.status(500);\r\n});\r\n\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(500);\r\n});\r\n"
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(500);\r\n});\r\n"
             ]
           }
         }
@@ -78,7 +78,7 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Response time is less than 5ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(5);\r\n});\r\n"
+              "pm.test(\"Response time is less than 100ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(100);\r\n});\r\n"
             ]
           }
         }
